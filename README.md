@@ -93,6 +93,30 @@ The `$PROFILE` already references this path, so it will load automatically on ne
 
 ---
 
+## 4. WezTerm
+
+### Config location
+```
+%USERPROFILE%\.wezterm.lua
+```
+
+### Setup
+```powershell
+Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm.lua" -Force
+```
+
+Restart WezTerm or reload with `Ctrl+Shift+L`.
+
+**Config features:**
+- Tokyo Night color scheme with Zenburn toggle (`Ctrl+Shift+Alt+E`)
+- Pane splits: `Ctrl+Shift+Alt+H` (right), `Ctrl+Shift+Alt+V` (down)
+- Resize panes: `Ctrl+Shift+U/I/O/P`
+- Opacity toggle: `Ctrl+Alt+O`
+- Blinking block cursor, 144 FPS, OpenGL renderer
+- Default shell: PowerShell 7 (`pwsh.exe -NoLogo`)
+
+---
+
 ## Quick Deploy
 
 Run this from the repo root to copy all configs at once:
@@ -105,6 +129,9 @@ Copy-Item -Path ".\pwsh\Microsoft.PowerShell_profile.ps1" -Destination "$env:USE
 
 # Oh My Posh theme
 Copy-Item -Path ".\oh-my-posh\in.json" -Destination "$env:USERPROFILE\Documents\PowerShell\oh-my-posh\in.json" -Force
+
+# WezTerm
+Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm.lua" -Force
 ```
 
 > **Note:** GlazeWM requires a config reload (`Alt+Shift+R`) or restart after copying. PowerShell & Oh My Posh take effect on next terminal session.
