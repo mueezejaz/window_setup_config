@@ -1,9 +1,0 @@
-[2m2026-01-01T07:18:59.149073Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[12].commands: unexpected argument found
- at line 152 column 15
-[2m2026-01-01T07:19:18.348823Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m keybindings[12].commands: unexpected argument found
- at line 152 column 15
-[2m2026-01-01T07:38:45.701587Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps: data did not match any variant of untagged enum LengthValueDe at line 2 column 3
-[2m2026-01-01T07:39:29.575363Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps: data did not match any variant of untagged enum LengthValueDe at line 2 column 3
-[2m2026-01-01T07:40:28.058999Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: invalid type: string "10px", expected struct RectDelta at line 3 column 14
-[2m2026-01-01T07:40:47.115759Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps: data did not match any variant of untagged enum LengthValueDe at line 2 column 3
-[2m2026-01-01T07:41:08.232856Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m deserializing from YAML containing more than one document is not supported
