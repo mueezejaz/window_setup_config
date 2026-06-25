@@ -7,22 +7,26 @@ This repo contains configuration for **GlazeWM**, **Oh My Posh**, and **PowerShe
 - [GlazeWM](https://github.com/glzr-io/glazewm) — tiling window manager for Windows
 - [Oh My Posh](https://ohmyposh.dev) — prompt theme engine
 - [PowerShell 7+](https://github.com/PowerShell/PowerShell) — modern PowerShell
-- [WezTerm](https://wezfurlong.org/wezterm/) (optional) — terminal emulator used in GlazeWM launcher
+- [WezTerm](https://wezfurlong.org/wezterm/) — terminal emulator used in GlazeWM launcher
 
 ---
 
 ## 1. GlazeWM
 
 ### Install
+
 Run the installer from `.\glazewm\glazewm-v3.9.1.exe` (or download the latest from the [releases page](https://github.com/glzr-io/glazewm/releases)).
 
 ### Config location
+
 ```
 %USERPROFILE%\.glzr\glazewm\config.yaml
 ```
 
 ### Setup
+
 Copy the config to the correct location:
+
 ```powershell
 Copy-Item -Path ".\glazewm\config.yaml" -Destination "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Force
 ```
@@ -48,11 +52,13 @@ Reload config in GlazeWM with `Alt+Shift+R`.
 ## 2. PowerShell Profile
 
 ### Config location
+
 ```
 %USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 ```
 
 ### Setup
+
 ```powershell
 Copy-Item -Path ".\pwsh\Microsoft.PowerShell_profile.ps1" -Destination "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Force
 ```
@@ -60,6 +66,7 @@ Copy-Item -Path ".\pwsh\Microsoft.PowerShell_profile.ps1" -Destination "$env:USE
 Open a new PowerShell session or run `. $PROFILE` to reload.
 
 **Profile features:**
+
 - Loads Oh My Posh with a custom theme
 - Vi keybindings (`Set-PSReadLineOption -EditMode Vi`)
 - `Ctrl+J` switches to Vi command mode
@@ -70,16 +77,19 @@ Open a new PowerShell session or run `. $PROFILE` to reload.
 ## 3. Oh My Posh Theme
 
 ### Install Oh My Posh
+
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh
 ```
 
 ### Config location
+
 ```
 %USERPROFILE%\Documents\PowerShell\oh-my-posh\in.json
 ```
 
 ### Setup
+
 ```powershell
 Copy-Item -Path ".\oh-my-posh\in.json" -Destination "$env:USERPROFILE\Documents\PowerShell\oh-my-posh\in.json" -Force
 ```
@@ -87,6 +97,7 @@ Copy-Item -Path ".\oh-my-posh\in.json" -Destination "$env:USERPROFILE\Documents\
 The `$PROFILE` already references this path, so it will load automatically on next shell start.
 
 **Theme preview:**
+
 - Left-aligned prompt with `path` → `git` → `vi_mode` segments
 - Second line with a `❯` prompt character
 - Colors: Tokyo Night palette (blues, teals, oranges, reds)
@@ -96,11 +107,13 @@ The `$PROFILE` already references this path, so it will load automatically on ne
 ## 4. WezTerm
 
 ### Config location
+
 ```
 %USERPROFILE%\.wezterm.lua
 ```
 
 ### Setup
+
 ```powershell
 Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm.lua" -Force
 ```
@@ -108,6 +121,7 @@ Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm
 Restart WezTerm or reload with `Ctrl+Shift+L`.
 
 **Config features:**
+
 - Tokyo Night color scheme with Zenburn toggle (`Ctrl+Shift+Alt+E`)
 - Pane splits: `Ctrl+Shift+Alt+H` (right), `Ctrl+Shift+Alt+V` (down)
 - Resize panes: `Ctrl+Shift+U/I/O/P`
@@ -120,6 +134,7 @@ Restart WezTerm or reload with `Ctrl+Shift+L`.
 ## Quick Deploy
 
 Run this from the repo root to copy all configs at once:
+
 ```powershell
 # GlazeWM
 Copy-Item -Path ".\glazewm\config.yaml" -Destination "$env:USERPROFILE\.glzr\glazewm\config.yaml" -Force
