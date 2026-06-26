@@ -1,0 +1,205 @@
+{
+    "editor.formatOnSave": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggest.insertMode": "replace",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "editor.linkedEditing": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 0.5,
+    "launch": {},
+    "[json]": {},
+    "workbench.statusBar.visible": false,
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "update.showReleaseNotes": false,
+    "zenMode.hideLineNumbers": false,
+    "editor.lineNumbers": "relative",
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<Space>",
+    "vim.hlsearch": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // --- Buffer navigation ---
+        {
+            "before": ["<S-h>"],
+            "commands": [":bprevious"]
+        },
+        {
+            "before": ["<S-l>"],
+            "commands": [":bnext"]
+        },
+        // --- Split management ---
+        {
+            "before": ["leader", "v"],
+            "commands": [":vsplit"]
+        },
+        {
+            "before": ["leader", "d"],
+            "commands": [":split"]
+        },
+        // --- Pane navigation (leader + h/j/k/l) ---
+        {
+            "before": ["leader", "h"],
+            "commands": ["workbench.action.focusLeftGroup"]
+        },
+        {
+            "before": ["leader", "j"],
+            "commands": ["workbench.action.focusBelowGroup"]
+        },
+        {
+            "before": ["leader", "k"],
+            "commands": ["workbench.action.focusAboveGroup"]
+        },
+        {
+            "before": ["leader", "l"],
+            "commands": ["workbench.action.focusRightGroup"]
+        },
+        // --- File operations ---
+        {
+            "before": ["leader", "w"],
+            "commands": [":w!"]
+        },
+        {
+            "before": ["leader", "q"],
+            "commands": [":q!"]
+        },
+        {
+            "before": ["leader", "x"],
+            "commands": [":x!"]
+        },
+        // --- Diagnostics navigation ---
+        {
+            "before": ["[", "d"],
+            "commands": ["editor.action.marker.prev"]
+        },
+        {
+            "before": ["]", "d"],
+            "commands": ["editor.action.marker.next"]
+        },
+        // --- Code actions & quick open ---
+        {
+            "before": ["<leader>", "c", "a"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["leader", "s"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        // --- Formatting & peek ---
+        {
+            "before": ["leader", "f"],
+            "commands": ["editor.action.formatDocument"]
+        },
+        {
+            "before": ["g", "h"],
+            "commands": ["editor.action.showDefinitionPreviewHover"]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-w>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "vim.remap",
+                    "args": {
+                        "after": [
+                            "\"",
+                            "_",
+                            "d",
+                            "P"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        // Indent / outdent (stay in visual mode)
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        // Move lines up / down (stay in visual mode)
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        },
+        // Toggle comment on selection
+        {
+            "before": ["leader", "c"],
+            "commands": ["editor.action.commentLine"]
+        }
+    ],
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.activityBar.location": "hidden",
+    "editor.autoClosingBrackets": "never",
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "explorer.compactFolders": false,
+    "workbench.editor.showTabs": "none",
+    "background.editor": {
+        "useFront": true,
+        "style": {
+            "background-size": "cover",
+            "opacity": 0.07,
+            "width": "100%",
+            "height": "100%",
+        },
+        "styles": [
+            {},
+            {},
+            {}
+        ],
+        "images": [
+            "file:///home/mueez/Downloads/images/upscalemedia-transformed.jpeg"
+        ],
+        "interval": 0,
+        "random": false
+    },
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.sideBar.location": "right",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "vscode-blur-linux.opacity": 70,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "explorer.confirmPasteNative": false,
+    "terminal.integrated.stickyScroll.enabled": false
+}

@@ -2,7 +2,7 @@
 
 Personal Windows development environment configuration, bringing together a cohesive terminal-centric workflow. This project configures a tiling window manager (GlazeWM), a terminal emulator (WezTerm), a shell prompt (PowerShell + Oh My Posh), and a code editor (Neovim) — all themed with a consistent Tokyo Night palette.
 
-This repo contains configuration for **GlazeWM**, **Neovim**, **Oh My Posh**, **PowerShell (pwsh)**, and **WezTerm**.
+This repo contains configuration for **GlazeWM**, **Neovim**, **VS Code**, **Oh My Posh**, **PowerShell (pwsh)**, and **WezTerm**.
 
 ## Prerequisites (Install all these first)
 
@@ -11,6 +11,7 @@ This repo contains configuration for **GlazeWM**, **Neovim**, **Oh My Posh**, **
 - [Oh My Posh](https://ohmyposh.dev) — prompt theme engine
 - [PowerShell 7+](https://github.com/PowerShell/PowerShell) — modern PowerShell
 - [WezTerm](https://wezfurlong.org/wezterm/) — terminal emulator used in GlazeWM launcher
+- [VS Code](https://code.visualstudio.com) — code editor (with [Vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim))
 - [FindFast Pluss](https://apps.microsoft.com/detail/9mzfb26s5prq) — fast file, folder, and app search utility
 
 ---
@@ -108,7 +109,33 @@ The `$PROFILE` already references this path, so it will load automatically on ne
 
 ---
 
-## 4. Neovim
+## 4. VS Code
+
+### Config location
+
+```
+%APPDATA%\Code\User\settings.json
+%APPDATA%\Code\User\keybindings.json
+```
+
+### Setup
+
+```powershell
+Copy-Item -Path ".\vscode\settings.json" -Destination "$env:APPDATA\Code\User\settings.json" -Force
+Copy-Item -Path ".\vscode\keybindings.json" -Destination "$env:APPDATA\Code\User\keybindings.json" -Force
+```
+
+Install the Vim extension:
+
+```powershell
+code --install-extension vscodevim.vim
+```
+
+Restart VS Code or run `Developer: Reload Window` from the command palette.
+
+---
+
+## 5. Neovim
 
 ### Config location
 
@@ -160,7 +187,7 @@ Restart Neovim or run `:Lazy! sync` to update plugins.
 
 ---
 
-## 5. WezTerm
+## 6. WezTerm
 
 ### Config location
 
@@ -206,6 +233,10 @@ Copy-Item -Path ".\nvim\*" -Destination "$env:LOCALAPPDATA\nvim" -Recurse -Force
 
 # WezTerm
 Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm.lua" -Force
+
+# VS Code
+Copy-Item -Path ".\vscode\settings.json" -Destination "$env:APPDATA\Code\User\settings.json" -Force
+Copy-Item -Path ".\vscode\keybindings.json" -Destination "$env:APPDATA\Code\User\keybindings.json" -Force
 ```
 
 > **Note:** GlazeWM requires a config reload (`Alt+Shift+R`) or restart after copying. Neovim may need `:Lazy! sync` after first copy. PowerShell & Oh My Posh take effect on next terminal session.
