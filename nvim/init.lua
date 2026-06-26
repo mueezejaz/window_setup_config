@@ -36,5 +36,15 @@ require("lazy").setup({
   },
 })
 
+vim.treesitter.language.register("javascript", { "javascriptreact" })
+vim.treesitter.language.register("typescript", { "typescriptreact" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
+
 require("keymaps")
 require("autocmds")
