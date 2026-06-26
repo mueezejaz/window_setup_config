@@ -1,13 +1,15 @@
 # Windows Config Setup
 
-This repo contains configuration for **GlazeWM**, **Oh My Posh**, and **PowerShell (pwsh)**.
+This repo contains configuration for **GlazeWM**, **Neovim**, **Oh My Posh**, **PowerShell (pwsh)**, and **WezTerm**.
 
-## Prerequisites
+## Prerequisites (Install all these first)
 
 - [GlazeWM](https://github.com/glzr-io/glazewm) — tiling window manager for Windows
+- [Neovim](https://neovim.io) — modern Vim-based editor
 - [Oh My Posh](https://ohmyposh.dev) — prompt theme engine
 - [PowerShell 7+](https://github.com/PowerShell/PowerShell) — modern PowerShell
 - [WezTerm](https://wezfurlong.org/wezterm/) — terminal emulator used in GlazeWM launcher
+- [FindFast Pluss](https://apps.microsoft.com/detail/9mzfb26s5prq) — fast file, folder, and app search utility
 
 ---
 
@@ -104,7 +106,59 @@ The `$PROFILE` already references this path, so it will load automatically on ne
 
 ---
 
-## 4. WezTerm
+## 4. Neovim
+
+### Config location
+
+```
+%LOCALAPPDATA%\nvim
+```
+
+### Setup
+
+```powershell
+Copy-Item -Path ".\nvim\*" -Destination "$env:LOCALAPPDATA\nvim" -Recurse -Force
+```
+
+Restart Neovim or run `:Lazy! sync` to update plugins.
+
+**Config features:**
+
+- Lazy.nvim plugin manager with 15+ plugins
+- Tokyo Night colorscheme (storm) with transparency
+- LSP support for Lua, C/C++, CMake, TypeScript/JavaScript (via mason.nvim)
+- Treesitter syntax highlighting & indentation
+- Telescope fuzzy finder (<leader>sf/sg/sb/sh/so/sk/sd/ss/sr)
+- Blink.cmp completion engine with LuaSnip snippets
+- Conform.nvim auto-formatting on save (stylua, prettier, clangd)
+- Gitsigns, which-key, todo-comments, grug-far, nvim-ufo, mini.surround
+- Undotree with Git diff integration
+- Custom terminal manager (<C-S-j>, <C-S-n>, <C-S-[>/<C-S-]>)
+- Recent files picker (<leader>so)
+- `jj` to exit insert mode, `fj` to toggle last buffer
+
+**Keybindings at a glance:**
+| Action | Binding |
+|--------|---------|
+| File search | `<leader>sf` |
+| Live grep | `<leader>sg` |
+| Search buffers | `<leader>sb` |
+| Recent files | `<leader>so` |
+| Format buffer | `<leader>f` |
+| Toggle undotree | `<leader>u` |
+| Vertical split | `<leader>v` |
+| Horizontal split | `<leader>d` |
+| Close buffer | `<leader>w` |
+| Go to definition | `gd` |
+| Hover docs | `K` |
+| Rename | `<leader>rn` |
+| Code action | `<leader>ca` |
+| Toggle terminal | `<C-S-j>` |
+| Next/prev terminal | `<C-S-]>` / `<C-S-[>` |
+
+---
+
+## 5. WezTerm
 
 ### Config location
 
@@ -145,8 +199,11 @@ Copy-Item -Path ".\pwsh\Microsoft.PowerShell_profile.ps1" -Destination "$env:USE
 # Oh My Posh theme
 Copy-Item -Path ".\oh-my-posh\in.json" -Destination "$env:USERPROFILE\Documents\PowerShell\oh-my-posh\in.json" -Force
 
+# Neovim
+Copy-Item -Path ".\nvim\*" -Destination "$env:LOCALAPPDATA\nvim" -Recurse -Force
+
 # WezTerm
 Copy-Item -Path ".\wezterm\.wezterm.lua" -Destination "$env:USERPROFILE\.wezterm.lua" -Force
 ```
 
-> **Note:** GlazeWM requires a config reload (`Alt+Shift+R`) or restart after copying. PowerShell & Oh My Posh take effect on next terminal session.
+> **Note:** GlazeWM requires a config reload (`Alt+Shift+R`) or restart after copying. Neovim may need `:Lazy! sync` after first copy. PowerShell & Oh My Posh take effect on next terminal session.
