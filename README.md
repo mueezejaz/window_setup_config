@@ -1,5 +1,7 @@
 # Windows Config Setup
 
+Personal Windows development environment configuration, bringing together a cohesive terminal-centric workflow. This project configures a tiling window manager (GlazeWM), a terminal emulator (WezTerm), a shell prompt (PowerShell + Oh My Posh), and a code editor (Neovim) — all themed with a consistent Tokyo Night palette.
+
 This repo contains configuration for **GlazeWM**, **Neovim**, **Oh My Posh**, **PowerShell (pwsh)**, and **WezTerm**.
 
 ## Prerequisites (Install all these first)
