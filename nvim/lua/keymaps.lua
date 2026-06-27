@@ -3,7 +3,7 @@ vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic m
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set("t", "EE", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true, desc = "Vertical split" })
 vim.keymap.set("n", "<leader>d", ":split<CR>", { noremap = true, silent = true, desc = "Horizontal split" })
