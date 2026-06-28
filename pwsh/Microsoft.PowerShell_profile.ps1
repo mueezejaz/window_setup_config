@@ -8,11 +8,13 @@ Set-PSReadLineOption -PredictionSource None
 # Switch to Vi command mode with Ctrl+J
 Set-PSReadLineKeyHandler -Chord "Ctrl+j" -Function ViCommandMode
 
-# === Vi-like history navigation ===
-# In command mode: 'k' goes to previous command, 'j' goes to next command
-Set-PSReadLineKeyHandler -Key "k" -Function PreviousHistory -ViMode Command
-Set-PSReadLineKeyHandler -Key "j" -Function NextHistory -ViMode Command
-
-# Optional: Also allow Up/Down arrows in command mode for history
-Set-PSReadLineKeyHandler -Key "UpArrow" -Function PreviousHistory -ViMode Command
-Set-PSReadLineKeyHandler -Key "DownArrow" -Function NextHistory -ViMode Command
+# === Vi-like cursor movement in insert mode ===
+# Ctrl+d/f = left/right one char
+Set-PSReadLineKeyHandler -Chord "Ctrl+d" -Function BackwardChar
+Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardChar
+# Ctrl+b/w = backward/forward one word (vim b/w in insert)
+Set-PSReadLineKeyHandler -Chord "Ctrl+b" -Function BackwardWord
+Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function ForwardWord
+# Ctrl+h = delete word behind, Ctrl+l = delete word forward
+Set-PSReadLineKeyHandler -Chord "Ctrl+h" -Function BackwardKillWord
+Set-PSReadLineKeyHandler -Chord "Ctrl+l" -Function KillWord
