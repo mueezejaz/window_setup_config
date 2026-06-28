@@ -24,3 +24,68 @@ vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", { noremap = true, si
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+
+-- Gitsigns
+vim.keymap.set("n", "<leader>hs", function()
+  require("gitsigns").stage_hunk()
+end, { desc = "Stage hunk" })
+vim.keymap.set("n", "<leader>hr", function()
+  require("gitsigns").reset_hunk()
+end, { desc = "Reset hunk" })
+vim.keymap.set("n", "<leader>hp", function()
+  require("gitsigns").preview_hunk()
+end, { desc = "Preview hunk" })
+vim.keymap.set("n", "<leader>hb", function()
+  require("gitsigns").blame_line()
+end, { desc = "Blame line" })
+vim.keymap.set("n", "<leader>hd", function()
+  require("gitsigns").diffthis()
+end, { desc = "Diff this" })
+vim.keymap.set("n", "<leader>hD", function()
+  require("gitsigns").diffthis("~")
+end, { desc = "Diff this ~" })
+vim.keymap.set("n", "<leader>hu", function()
+  require("gitsigns").undo_stage_hunk()
+end, { desc = "Undo stage hunk" })
+vim.keymap.set("n", "<leader>hS", function()
+  require("gitsigns").stage_buffer()
+end, { desc = "Stage buffer" })
+vim.keymap.set("n", "<leader>hR", function()
+  require("gitsigns").reset_buffer()
+end, { desc = "Reset buffer" })
+vim.keymap.set("n", "<leader>hU", function()
+  require("gitsigns").reset_buffer_index()
+end, { desc = "Unstage buffer" })
+vim.keymap.set("n", "<leader>hc", function()
+  require("telescope.builtin").git_commits({
+    attach_mappings = function(_, map)
+      map("i", "<CR>", function(prompt_bufnr)
+        local selection = require("telescope.actions.state").get_selected_entry()
+        require("telescope.actions").close(prompt_bufnr)
+        if selection then
+          require("gitsigns").diffthis(selection.value)
+        end
+      end)
+      return true
+    end,
+  })
+end, { desc = "Diff against selected commit" })
+
+vim.keymap.set("n", "]h", function()
+  if vim.wo.diff then
+    return "]h"
+  end
+  vim.schedule(function()
+    require("gitsigns").next_hunk()
+  end)
+  return "<Ignore>"
+end, { expr = true, desc = "Next hunk" })
+vim.keymap.set("n", "[h", function()
+  if vim.wo.diff then
+    return "[h"
+  end
+  vim.schedule(function()
+    require("gitsigns").prev_hunk()
+  end)
+  return "<Ignore>"
+end, { expr = true, desc = "Prev hunk" })

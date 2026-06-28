@@ -6,6 +6,7 @@ return {
     cmd = { "TSInstall", "TSUpdate" },
     config = function()
       require("nvim-treesitter.config").setup({
+        auto_install = true,
         ensure_installed = { "javascript", "jsx", "typescript", "tsx" },
         indent = { enable = true },
       })

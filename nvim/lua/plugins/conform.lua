@@ -6,7 +6,9 @@ return {
 			{
 				"<leader>f",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					if vim.bo.modifiable then
+						require("conform").format({ async = true, lsp_fallback = true })
+					end
 				end,
 				mode = "",
 				desc = "Format buffer",
