@@ -1,6 +1,13 @@
 local terminals = {}
 local term_index = 1
 local active_term = nil
+local term_mru = {}
+local mru_counter = 0
+
+local function update_term_mru(buf)
+  mru_counter = mru_counter + 1
+  term_mru[buf] = mru_counter
+end
 
 local function set_active_highlight(idx)
   if active_term and terminals[active_term] and terminals[active_term].win then
@@ -110,6 +117,10 @@ local function telescope_terminals()
     return
   end
 
+  table.sort(entries, function(a, b)
+    return (term_mru[a.buf] or 0) > (term_mru[b.buf] or 0)
+  end)
+
   pcall(require, "telescope")
 
   vim.ui.select(entries, {
@@ -148,6 +159,15 @@ vim.keymap.set("t", "<C-S-i>", [[<C-\><C-n>:resize +2<CR>i]], { noremap = true, 
 vim.keymap.set("t", "<C-S-d>", [[<C-\><C-n>:resize -2<CR>i]], { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tt", telescope_terminals, { noremap = true, silent = true, desc = "List terminals" })
 vim.keymap.set("n", "<leader><leader>", telescope_terminals, { noremap = true, silent = true, desc = "List terminals" })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function(args)
+    if vim.bo[args.buf].buftype == "terminal" then
+      update_term_mru(args.buf)
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd("WinClosed", {
   pattern = "*",
