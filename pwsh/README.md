@@ -18,17 +18,19 @@ Set-PSReadLineOption -PredictionSource None
 - **Vi mode** enabled (Vim-style modal editing at the prompt)
 - **Predictions** disabled
 
-### 3. Key Bindings
+### 3. Key Bindings (Insert Mode)
 
-| Chord | Action | Context |
-|-------|--------|---------|
-| `Ctrl+J` | Switch to Vi command mode | Global |
-| `k` | Previous history | Vi command mode only |
-| `j` | Next history | Vi command mode only |
-| `UpArrow` | Previous history | Vi command mode only |
-| `DownArrow` | Next history | Vi command mode only |
-
-This mimics Vim's `k`/`j` for moving through command history.
+| Chord | Action | Description |
+|-------|--------|-------------|
+| `Ctrl+J` | `ViCommandMode` | Switch to Vi command mode |
+| `Ctrl+D` | `BackwardChar` | Move left one character |
+| `Ctrl+F` | `ForwardChar` | Move right one character |
+| `Ctrl+B` | `BackwardWord` | Move backward one word |
+| `Ctrl+W` | `ForwardWord` | Move forward one word |
+| `Ctrl+P` | `PreviousHistory` | Previous command in history |
+| `Ctrl+N` | `NextHistory` | Next command in history |
+| `Ctrl+H` | `BackwardKillWord` | Delete word behind cursor |
+| `Ctrl+L` | `KillWord` | Delete word forward from cursor |
 
 ## What's NOT here
 
