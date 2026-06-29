@@ -15,6 +15,10 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardChar
 # Ctrl+b/w = backward/forward one word (vim b/w in insert)
 Set-PSReadLineKeyHandler -Chord "Ctrl+b" -Function BackwardWord
 Set-PSReadLineKeyHandler -Chord "Ctrl+w" -Function ForwardWord
+# Ctrl+p/n = previous/next command in history
+Set-PSReadLineKeyHandler -Chord "Ctrl+p" -Function PreviousHistory
+Set-PSReadLineKeyHandler -Chord "Ctrl+n" -Function NextHistory
+
 # Ctrl+h = delete word behind, Ctrl+l = delete word forward
 Set-PSReadLineKeyHandler -Chord "Ctrl+h" -Function BackwardKillWord
 Set-PSReadLineKeyHandler -Chord "Ctrl+l" -Function KillWord
