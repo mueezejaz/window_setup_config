@@ -4,6 +4,7 @@ local active_term = nil
 local term_mru = {}
 local mru_counter = 0
 
+
 local function update_term_mru(buf)
   mru_counter = mru_counter + 1
   term_mru[buf] = mru_counter

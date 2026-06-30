@@ -1,4 +1,5 @@
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><C-w>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-2>", "<C-w>", { noremap = true, silent = true, desc = "Window commands (alt Ctrl+W)" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
@@ -26,37 +27,37 @@ vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature hel
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
 -- Gitsigns
-vim.keymap.set("n", "<leader>hs", function()
+vim.keymap.set("n", "<leader>gs", function()
   require("gitsigns").stage_hunk()
 end, { desc = "Stage hunk" })
-vim.keymap.set("n", "<leader>hr", function()
+vim.keymap.set("n", "<leader>gr", function()
   require("gitsigns").reset_hunk()
 end, { desc = "Reset hunk" })
-vim.keymap.set("n", "<leader>hp", function()
+vim.keymap.set("n", "<leader>gp", function()
   require("gitsigns").preview_hunk()
 end, { desc = "Preview hunk" })
-vim.keymap.set("n", "<leader>hb", function()
+vim.keymap.set("n", "<leader>gb", function()
   require("gitsigns").blame_line()
 end, { desc = "Blame line" })
-vim.keymap.set("n", "<leader>hd", function()
+vim.keymap.set("n", "<leader>gd", function()
   require("gitsigns").diffthis()
 end, { desc = "Diff this" })
-vim.keymap.set("n", "<leader>hD", function()
+vim.keymap.set("n", "<leader>gD", function()
   require("gitsigns").diffthis("~")
 end, { desc = "Diff this ~" })
-vim.keymap.set("n", "<leader>hu", function()
+vim.keymap.set("n", "<leader>gu", function()
   require("gitsigns").undo_stage_hunk()
 end, { desc = "Undo stage hunk" })
-vim.keymap.set("n", "<leader>hS", function()
+vim.keymap.set("n", "<leader>gS", function()
   require("gitsigns").stage_buffer()
 end, { desc = "Stage buffer" })
-vim.keymap.set("n", "<leader>hR", function()
+vim.keymap.set("n", "<leader>gR", function()
   require("gitsigns").reset_buffer()
 end, { desc = "Reset buffer" })
-vim.keymap.set("n", "<leader>hU", function()
+vim.keymap.set("n", "<leader>gU", function()
   require("gitsigns").reset_buffer_index()
 end, { desc = "Unstage buffer" })
-vim.keymap.set("n", "<leader>hc", function()
+vim.keymap.set("n", "<leader>gc", function()
   require("telescope.builtin").git_commits({
     attach_mappings = function(_, map)
       map("i", "<CR>", function(prompt_bufnr)
@@ -71,18 +72,18 @@ vim.keymap.set("n", "<leader>hc", function()
   })
 end, { desc = "Diff against selected commit" })
 
-vim.keymap.set("n", "]h", function()
+vim.keymap.set("n", "]g", function()
   if vim.wo.diff then
-    return "]h"
+    return "]g"
   end
   vim.schedule(function()
     require("gitsigns").next_hunk()
   end)
   return "<Ignore>"
 end, { expr = true, desc = "Next hunk" })
-vim.keymap.set("n", "[h", function()
+vim.keymap.set("n", "[g", function()
   if vim.wo.diff then
-    return "[h"
+    return "[g"
   end
   vim.schedule(function()
     require("gitsigns").prev_hunk()

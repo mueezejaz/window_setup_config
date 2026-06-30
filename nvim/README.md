@@ -18,14 +18,13 @@ nvim/
     recent_files.lua        -- Session-based recent files (Telescope UI)
     plugins/
       ui.lua                -- tokyonight, todo-comments, mini.surround, nvim-ufo
-      treesitter.lua        -- nvim-treesitter (auto_install)
+      treesitter.lua        -- nvim-treesitter
       telescope.lua         -- Telescope.nvim + recent files
       lsp.lua               -- Mason, lspconfig, lazydev, fidget
       completion.lua        -- blink.cmp + LuaSnip
-      conform.lua           -- conform.nvim (formatting, modifiable guard)
+      conform.lua           -- conform.nvim (formatting)
       render-markdown.lua   -- render-markdown.nvim
-      gitsigns.lua          -- gitsigns.nvim (dedicated config)
-      core.lua              -- which-key, grug-far
+      core.lua              -- gitsigns, which-key, grug-far
       undotree.lua          -- undotree + vim-fubitive
       comment.lua           -- Comment.nvim
       terminal.lua          -- Lazy spec for the custom terminal module
@@ -45,14 +44,13 @@ nvim/
 | Fold level | 99 (open by default) |
 | Shell | PowerShell 7 (`pwsh`) |
 | Invisible chars | Tab=`»`, trailing=`·`, nbsp=`␣` |
-| timeoutlen | 1000ms |
-| ttimeoutlen | 100ms |
 
 ## Keybindings
 
 | Action | Binding |
 |--------|---------|
-| Clear search highlight | `<Esc>` |
+| Clear search highlight | `<Esc>` (also returns to normal mode) |
+| Window commands | `<C-2>` (alt for `<C-w>`) |
 | Exit insert mode | `jj` |
 | Save file | `<C-s>` |
 | Toggle last buffer | `fj` |
@@ -105,7 +103,7 @@ nvim/
 | Prev terminal | `<C-S-[>` |
 | Increase terminal height | `<C-S-i>` |
 | Decrease terminal height | `<C-S-d>` |
-| List terminals (MRU sorted) | `<leader>tt` / `<leader><leader>` |
+| List terminals | `<leader>tt` / `<leader><leader>` |
 | Exit terminal mode | `<C-j>` |
 
 ### Markdown
@@ -118,19 +116,19 @@ nvim/
 
 | Action | Binding |
 |--------|---------|
-| Stage hunk | `<leader>hs` |
-| Reset hunk | `<leader>hr` |
-| Preview hunk | `<leader>hp` |
-| Blame line | `<leader>hb` |
-| Diff this | `<leader>hd` |
-| Diff this ~ | `<leader>hD` |
-| Undo stage hunk | `<leader>hu` |
-| Stage buffer | `<leader>hS` |
-| Reset buffer | `<leader>hR` |
-| Unstage buffer | `<leader>hU` |
-| Diff against commit | `<leader>hc` |
-| Next hunk | `]h` |
-| Prev hunk | `[h` |
+| Stage hunk | `<leader>gs` |
+| Reset hunk | `<leader>gr` |
+| Preview hunk | `<leader>gp` |
+| Blame line | `<leader>gb` |
+| Diff this | `<leader>gd` |
+| Diff this ~ | `<leader>gD` |
+| Undo stage hunk | `<leader>gu` |
+| Stage buffer | `<leader>gS` |
+| Reset buffer | `<leader>gR` |
+| Unstage buffer | `<leader>gU` |
+| Diff against commit | `<leader>gc` |
+| Next hunk | `]g` |
+| Prev hunk | `[g` |
 
 ### Other
 
@@ -153,7 +151,7 @@ nvim/
 | **nvim-lspconfig** | LSP client (clangd, lua_ls, ts_ls, cmake) |
 | **mason.nvim** | LSP/formatter installer |
 | **render-markdown.nvim** | Inline markdown rendering |
-| **gitsigns.nvim** | Git decorations (dedicated config in `gitsigns.lua`) |
+| **gitsigns.nvim** | Git decorations |
 | **which-key.nvim** | Keybinding popup help |
 | **todo-comments.nvim** | Highlight TODO/FIXME |
 | **grug-far.nvim** | Search & replace UI |
