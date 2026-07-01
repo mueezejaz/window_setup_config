@@ -14,6 +14,8 @@ vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<leader>x", "<C-w>c", { noremap = true, silent = true, desc = "Close current split" })
 
+vim.keymap.set("x", "S", ':<C-u>lua MiniSurround.add("visual")<CR>', { silent = true, desc = "Add surround" })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down", noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up", noremap = true, silent = true })
 

@@ -49,8 +49,7 @@ nvim/
 
 | Action | Binding |
 |--------|---------|
-| Clear search highlight | `<Esc>` (also returns to normal mode) |
-| Window commands | `<C-2>` (alt for `<C-w>`) |
+| Clear search highlight | `<Esc>` |
 | Exit insert mode | `jj` |
 | Save file | `<C-s>` |
 | Toggle last buffer | `fj` |
@@ -61,6 +60,7 @@ nvim/
 | Navigate split | `<leader>h/j/k/l` |
 | Close split | `<leader>x` |
 | Move line up/down (visual) | `K` / `J` |
+| Surround selection (visual) | `S` then `(` / `"` / `{` / `[` etc. |
 
 ### LSP
 
@@ -104,31 +104,13 @@ nvim/
 | Increase terminal height | `<C-S-i>` |
 | Decrease terminal height | `<C-S-d>` |
 | List terminals | `<leader>tt` / `<leader><leader>` |
-| Exit terminal mode | `<C-j>` |
+| Exit terminal mode | `EE` |
 
 ### Markdown
 
 | Action | Binding |
 |--------|---------|
 | Toggle render | `<leader>md` |
-
-### Gitsigns
-
-| Action | Binding |
-|--------|---------|
-| Stage hunk | `<leader>gs` |
-| Reset hunk | `<leader>gr` |
-| Preview hunk | `<leader>gp` |
-| Blame line | `<leader>gb` |
-| Diff this | `<leader>gd` |
-| Diff this ~ | `<leader>gD` |
-| Undo stage hunk | `<leader>gu` |
-| Stage buffer | `<leader>gS` |
-| Reset buffer | `<leader>gR` |
-| Unstage buffer | `<leader>gU` |
-| Diff against commit | `<leader>gc` |
-| Next hunk | `]g` |
-| Prev hunk | `[g` |
 
 ### Other
 
@@ -156,7 +138,7 @@ nvim/
 | **todo-comments.nvim** | Highlight TODO/FIXME |
 | **grug-far.nvim** | Search & replace UI |
 | **nvim-ufo** | Code folding |
-| **mini.surround** | Paired delimiter ops (`ys`/`cs`/`ds`) |
+| **mini.surround** | Paired delimiter ops — `sa`/`S` add, `sd` delete, `sr` replace |
 | **undotree** | Visual undo history |
 | **Comment.nvim** | Toggle comments |
 
