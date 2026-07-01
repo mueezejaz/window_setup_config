@@ -112,6 +112,24 @@ nvim/
 |--------|---------|
 | Toggle render | `<leader>md` |
 
+### Gitsigns
+
+| Action | Binding |
+|--------|---------|
+| Stage hunk | `<leader>gs` |
+| Reset hunk | `<leader>gr` |
+| Preview hunk | `<leader>gp` |
+| Blame line | `<leader>gb` |
+| Diff this | `<leader>gd` |
+| Diff this ~ | `<leader>gD` |
+| Undo stage hunk | `<leader>gu` |
+| Stage buffer | `<leader>gS` |
+| Reset buffer | `<leader>gR` |
+| Unstage buffer | `<leader>gU` |
+| Diff against commit | `<leader>gc` |
+| Next hunk | `]g` |
+| Prev hunk | `[g` |
+
 ### Other
 
 | Action | Binding |
